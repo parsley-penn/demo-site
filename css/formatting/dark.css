@@ -1,0 +1,31 @@
+.formattedText {
+  background-color: #002b36;
+  font-family: 'EB Garamond', serif;
+  font-size: 22pt;
+  color: #93a1a1;
+  line-height: 1.3em;
+  text-align: justify;
+}
+.formattedText .word {
+  /* Add spacing using padding*/
+  padding: 0 .05em;
+  box-sizing: border-box;
+}
+.formattedText .word::after {
+  /* add a space between all words for line breaks */
+  font-size: 0;
+  content: " ";
+}
+/* formatting rules */
+.label-S > .label-NP {
+  color: #eee8d5;
+}
+.label-PP {
+  background-color: #073642;
+  border-radius: 5px;
+  transition-duration: .5s;
+  transition-property: color, background-color;
+}
+.label-PP:hover {
+  background-color: #6c71c4;
+}

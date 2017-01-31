@@ -1,0 +1,23 @@
+/************* BASE FORMATTING **************/
+.formattedText {
+  font-family: 'EB Garamond', serif;
+  font-size: 22pt;
+  line-height: 1.3em;
+  text-align: justify;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.formattedText .word {
+  /* Add spacing using padding*/
+  padding: 0 .05em;
+  box-sizing: border-box;
+}
+.formattedText .word::after {
+  /* add a space between all words for line breaks */
+  font-size: 0;
+  content: " ";
+}
+.formattedText .word.label-period,
+.formattedText .word.label-comma {
+  padding-left: 0;
+}
