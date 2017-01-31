@@ -100,7 +100,7 @@ jQuery(function($){
 
   const text = query['text'];
 
-  $.getJSON(`/texts/${text}.json`)
+  $.getJSON(`texts/${text}.json`)
     .done(function(data) {
       ReactDOM.render(
         <FormattedText tree={ data } />,
