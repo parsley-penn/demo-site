@@ -1,0 +1,27 @@
+/* formatting rules */
+.formattedText {
+  background-color: #fdf6e3;
+  color: #657b83;
+}
+.label-S > .label-NP {
+  /*.label-VP {*/
+  color: #268bd2;
+}
+.label-VB,
+.label-VBD,
+.label-VBG,
+.label-VBN,
+.label-VBP,
+.label-VBZ {
+  color: #dc322f;
+}
+.label-PP {
+  background-color: #eee8d5;
+  border-radius: 5px;
+  transition-duration: .5s;
+  transition-property: color, background-color;
+}
+.label-PP:hover {
+  color: #eee8d5;
+  background-color: #93a1a1;
+}

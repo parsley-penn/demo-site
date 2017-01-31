@@ -17,20 +17,26 @@
 
 /* formatting rules */
 .formattedText {
-  background-color: @base03;
-  color: @base1;
+  background-color: #fdf6e3;
+  color: #657b83;
 }
 
 .label-S > .label-NP {
-  color: @base2;
+/*.label-VP {*/
+  color: #268bd2;
+}
+
+.label-VB, .label-VBD, .label-VBG, .label-VBN, .label-VBP, .label-VBZ {
+  color: @red;
 }
 
 .label-PP {
-  background-color: @base02;
+  background-color: #eee8d5;
   border-radius: 5px;
   transition-duration: .5s;
   transition-property: color, background-color;
   &:hover {
-    background-color: @violet;
+    color: #eee8d5;
+    background-color: #93a1a1;
   }
 }
