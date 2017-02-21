@@ -1,3 +1,9 @@
+/*
+Highlight the following:
+  1) NPs whose parents are S
+  2) NPs preceded by an NP
+*/
+
 @base03:   #002b36;
 @base02:   #073642;
 @base01:   #586e75;
@@ -15,14 +21,31 @@
 @cyan:     #2aa198;
 @green:    #859900;
 
-/* formatting rules */
+/* Body rules */
 .formattedText {
   background-color: @base03;
   color: @base1;
 }
 
+/* Specific highlighting rules */
+// Direct NP children of sentence parents will be highlighted
 .label-S > .label-NP {
   color: @base2;
+}
+
+// Recolor children of noun phrases to regular text
+
+.label-NP ~ .label-NP {
+ color: @base1;
+}
+
+// Recolor in/to/etc.
+.label-IN {
+  color: @base1;
+}
+
+.label-VBN {
+  color: @blue;
 }
 
 .label-PP {
@@ -31,6 +54,6 @@
   transition-duration: .5s;
   transition-property: color, background-color;
   &:hover {
-    background-color: @violet;
+    background-color: @blue;
   }
 }
