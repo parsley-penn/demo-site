@@ -1,6 +1,8 @@
 /* formatting rules */
-.formattedText {
+.container {
   background-color: #fdf6e3;
+}
+.formattedText {
   color: #657b83;
 }
 .label-S > .label-NP {
