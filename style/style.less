@@ -1,24 +1,37 @@
 /************* BASE FORMATTING **************/
-.formattedText {
-  font-family: 'EB Garamond', serif;
-  font-size: 22pt;
-  line-height: 1.3em;
-  text-align: justify;
-  max-width: 700px;
-  margin: 0 auto;
-  
-  .word {
-    /* Add spacing using padding*/
-    padding: 0 .05em;
-    box-sizing: border-box;
-    &::after {
-      /* add a space between all words for line breaks */
-      font-size: 0;
-      content: " ";
-    }
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.container {
+  padding: 0.5em;
+
+  .formattedText {
+    font-family: 'EB Garamond', serif;
+    font-size: 22pt;
+    line-height: 1.3em;
+    text-align: justify;
+    max-width: 700px;
+    margin: 0 auto;
     
-    &.label-period, &.label-comma {
-     padding-left: 0;
+    .word {
+      /* Add spacing using padding*/
+      padding: 0 .05em;
+      box-sizing: border-box;
+      &::after {
+        /* add a space between all words for line breaks */
+        font-size: 0;
+        content: " ";
+      }
+      
+      &.label-period, &.label-comma, &.label-POS , &.label-right-double-quote {
+       padding-left: 0;
+      }
+
+      &.label-left-double-quote {
+       padding-right: 0;
+      }
     }
   }
 }

@@ -21,7 +21,11 @@ function isPhrase(syntaxTree) {
 }
 
 function makeSafeLabel(label) {
-  if (label === '.') {
+  if (label === '``') {
+    return 'left-double-quote';
+  } else if (label === '\'\'') {
+    return 'right-double-quote';
+  } else if (label === '.') {
     return 'period';
   } else if (label === ',') {
     return 'comma';
@@ -31,13 +35,14 @@ function makeSafeLabel(label) {
 }
 
 function getDisplayWord(word) {
-  if (word === '-LRB-') {
-    return '(';
-  } else if (word === '-RRB-') {
-    return ')';
-  } else {
-    return word;
-  }
+  var map = {
+    '-LRB-': '(',
+    '-RRB-': ')',
+    '``': '“',
+    '\'\'': '”'
+  };
+
+  return map[word] || word;
 }
 
 function Word(props) {
@@ -85,7 +90,7 @@ var FormattedText = function (_React$Component) {
       if (isSentence(this.props.tree)) {
         sentences = React.createElement(Phrase, { tree: this.props.tree });
       } else {
-        sentences = this.props.tree.children.map(function (sentence, index) {
+        sentences = this.props.tree.map(function (sentence, index) {
           return React.createElement(Phrase, { key: index, tree: sentence });
         });
       }

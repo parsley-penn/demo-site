@@ -11,7 +11,11 @@ function isPhrase(syntaxTree) {
 }
 
 function makeSafeLabel(label) {
-  if (label === '.') {
+  if (label === '``') {
+    return 'left-double-quote';
+  } else if (label === '\'\'') {
+    return 'right-double-quote';
+  } else if (label === '.') {
     return 'period';
   } else if (label === ',') {
     return 'comma';
@@ -21,13 +25,14 @@ function makeSafeLabel(label) {
 }
 
 function getDisplayWord(word) {
-  if (word === '-LRB-') {
-    return '(';
-  } else if (word === '-RRB-') {
-    return ')';
-  } else {
-    return word;
+  var map = {
+    '-LRB-': '(',
+    '-RRB-': ')',
+    '``': '“',
+    '\'\'': '”'
   }
+  
+  return map[word] || word;
 }
 
 function Word(props) {
@@ -69,7 +74,7 @@ class FormattedText extends React.Component {
     if (isSentence(this.props.tree)) {
       sentences = <Phrase tree={this.props.tree} />;
     } else {
-      sentences = this.props.tree.children.map((sentence, index) => {
+      sentences = this.props.tree.map((sentence, index) => {
         return <Phrase key={index} tree={sentence} />;
       });
     }
@@ -95,7 +100,7 @@ function getQueryMap(query) {
 }
 
 jQuery(function($){
-// Load text from JSON
+  // Load text from JSON
   const query = getQueryMap(window.location.search.substring(1));
 
   const text = query['text'];
